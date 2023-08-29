@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-course",
+  "version": "1.0.0",
+  "description": "NodeJS Global Mentoring Program [2023 Q3-Q4 APAC]",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.epam.com/linh_vu/nodejs-course.git"
+  },
+  "author": "Linh Vu",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
