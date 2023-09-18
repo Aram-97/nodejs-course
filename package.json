@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js",
-    "activity-monitor": "nodemon ./activityMonitor.js",
-    "event-emitter": "nodemon ./EventEmitter.test.js",
-    "csv-reader": "nodemon ./csvFileReader.js",
-    "with-time": "nodemon ./WithTime.js"
+    "start": "nodemon src/home-task-1/index.js",
+    "activity-monitor": "nodemon src/home-task-2/activityMonitor.js",
+    "event-emitter": "nodemon src/home-task-3/EventEmitterTest.js",
+    "csv-reader": "nodemon src/home-task-3/csvFileReader.js",
+    "with-time": "nodemon src/home-task-3/WithTime.js"
   },
   "repository": {
     "type": "git",
