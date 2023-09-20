@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./index.js",
-    "activity-monitor": "nodemon ./activityMonitor.js"
+    "activity-monitor": "nodemon ./activityMonitor.js",
+    "event-emitter": "nodemon ./EventEmitter.test.js",
+    "csv-reader": "nodemon ./csvFileReader.js",
+    "with-time": "nodemon ./WithTime.js"
   },
   "repository": {
     "type": "git",
@@ -15,6 +18,7 @@
   "author": "Linh Vu",
   "license": "ISC",
   "dependencies": {
+    "csvtojson": "^2.0.10",
     "nodemon": "^3.0.1"
   }
 }
