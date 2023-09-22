@@ -2,8 +2,8 @@ const fs = require("fs");
 const csvtojson = require("csvtojson");
 const { Transform, pipeline } = require("stream");
 
-const CSV_FILE_PATH = "./csv/nodejs-hw3-ex3.csv";
-const TXT_FILE_PATH = "./csv/nodejs-hw3-ex3.txt";
+const CSV_FILE_PATH = "src/home-task-3/csv/nodejs-hw3-ex3.csv";
+const TXT_FILE_PATH = "src/home-task-3/csv/nodejs-hw3-ex3.txt";
 
 const normalizePropsName = new Transform({
   transform(chunk, encoding, next) {
