@@ -4,7 +4,7 @@ import { getRequestBody, handleRequestError } from "../../utils";
 
 export const CREATE_USER_ROUTE: Route = {
   method: HTTP_METHOD.POST,
-  path: "/api/User",
+  path: "/api/users",
   async resolver(req, res) {
     try {
       const body = await getRequestBody(req);

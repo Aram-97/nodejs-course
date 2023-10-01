@@ -7,7 +7,7 @@ import {
   GET_USER_HOBBIES_ROUTE,
   ADD_USER_HOBBY_ROUTE,
   REMOVE_USER_HOBBY_ROUTE,
-} from "./user";
+} from "./users";
 
 export const APP_ROUTES = [
   GET_USERS_ROUTE,

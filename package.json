@@ -11,7 +11,7 @@
     "event-emitter": "nodemon src/home-task-3/EventEmitterTest.js",
     "csv-reader": "nodemon src/home-task-3/csvFileReader.js",
     "with-time": "nodemon src/home-task-3/WithTime.js",
-    "user-api": "nodemon src/home-task-5/app.ts"
+    "users-api": "nodemon src/home-task-5/app.ts"
   },
   "repository": {
     "type": "git",

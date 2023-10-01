@@ -4,7 +4,7 @@ import { handleRequestError } from "../../utils";
 
 export const GET_USER_BY_ID_ROUTE: Route = {
   method: HTTP_METHOD.GET,
-  path: "/api/User/{id}",
+  path: "/api/users/{id}",
   async resolver(req, res, ...params) {
     try {
       const [id] = params;
@@ -15,7 +15,7 @@ export const GET_USER_BY_ID_ROUTE: Route = {
         links: [
           {
             method: HTTP_METHOD.GET,
-            href: `/api/User/${id}/Hobbies`,
+            href: `/api/users/${id}/hobbies`,
             rel: "hobbies",
           },
         ],
