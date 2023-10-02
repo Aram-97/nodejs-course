@@ -1,0 +1,25 @@
+{
+  "id": "97aa6a18-3f0c-4270-a420-d0255145a92c",
+  "userId": "a3e2b003-66ac-44be-bb06-22a97c4d0c14",
+  "isDeleted": false,
+  "items": [
+    {
+      "product": {
+        "id": "21cc8580-849c-42c4-b696-8d750ad842f4",
+        "title": "Watch",
+        "description": "A stylish and timeless wristwatch",
+        "price": 250
+      },
+      "count": 2
+    },
+    {
+      "product": {
+        "id": "69eb2a16-e292-465d-8c8d-1dffe94e3289",
+        "title": "Smartphone",
+        "description": "A sleek smartphone with advanced features",
+        "price": 500
+      },
+      "count": 1
+    }
+  ]
+}
