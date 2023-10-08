@@ -1,0 +1,122 @@
+[
+  {
+    "id": "69eb2a16-e292-465d-8c8d-1dffe94e3289",
+    "title": "Smartphone",
+    "description": "A sleek smartphone with advanced features",
+    "price": 500
+  },
+  {
+    "id": "3b82b13a-dc57-4e37-a6a9-ff7d8527dc5f",
+    "title": "Headphones",
+    "description": "High-quality wireless headphones",
+    "price": 150
+  },
+  {
+    "id": "6a914c8a-0c86-4537-98b7-0329682dbca8",
+    "title": "Camera",
+    "description": "A professional DSLR camera for photography",
+    "price": 800
+  },
+  {
+    "id": "21cc8580-849c-42c4-b696-8d750ad842f4",
+    "title": "Watch",
+    "description": "A stylish and timeless wristwatch",
+    "price": 250
+  },
+  {
+    "id": "3cc43aa0-59b9-4ff7-9da0-dcd2a98ac0a4",
+    "title": "Speaker",
+    "description": "A portable Bluetooth speaker with great sound quality",
+    "price": 75
+  },
+  {
+    "id": "06bf6b6a-48bf-45b2-8225-831b9bbee4cf",
+    "title": "Backpack",
+    "description": "A durable and spacious backpack for daily use",
+    "price": 60
+  },
+  {
+    "id": "f13cc33e-bf8d-4e99-a65d-7376ec1e73f2",
+    "title": "Sneakers",
+    "description": "Comfortable and stylish sneakers",
+    "price": 90
+  },
+  {
+    "id": "1f512e84-ddd3-472c-907f-c98a67a7092b",
+    "title": "Bicycle",
+    "description": "A lightweight and fast road bicycle",
+    "price": 1200
+  },
+  {
+    "id": "0608c572-46d6-4799-b202-1eaaa6eaeed6",
+    "title": "Desk",
+    "description": "A spacious and ergonomic desk",
+    "price": 200
+  },
+  {
+    "id": "92dc0a35-e8cd-4e31-9670-28be68181e42",
+    "title": "Chair",
+    "description": "A comfortable office chair with lumbar support",
+    "price": 150
+  },
+  {
+    "id": "7b962a81-551b-480e-9310-4aba7dc7afab",
+    "title": "Sunglasses",
+    "description": "Stylish, polarized sunglasses for sun protection",
+    "price": 80
+  },
+  {
+    "id": "9ecee192-5a5b-447d-8ee5-ca8d0be18149",
+    "title": "Notebook",
+    "description": "A set of high-quality notebooks for writing",
+    "price": 20
+  },
+  {
+    "id": "500a1d37-9711-4bb8-82ff-daa20d68a940",
+    "title": "Pen",
+    "description": "A smooth-writing and elegant fountain pen",
+    "price": 30
+  },
+  {
+    "id": "338e897c-2acb-4b3b-a194-fd257f8d0145",
+    "title": "Keyboard",
+    "description": "A high-performance mechanical keyboard",
+    "price": 100
+  },
+  {
+    "id": "a0a2703c-f819-44ac-8587-3eb99e54d587",
+    "title": "Mouse",
+    "description": "An ergonomic mouse with programmable buttons",
+    "price": 60
+  },
+  {
+    "id": "0d0fe3b3-3ad5-48f3-a1e2-ee740a1841ee",
+    "title": "Water Bottle",
+    "description": "An insulated stainless steel water bottle",
+    "price": 25
+  },
+  {
+    "id": "755d6b23-a9dc-4dbb-afd6-5d2e454fd0b4",
+    "title": "T-Shirt",
+    "description": "A soft and comfortable cotton T-shirt",
+    "price": 25
+  },
+  {
+    "id": "e219f382-5c5c-48d9-8ea5-91f1b22a3a5b",
+    "title": "Microwave",
+    "description": "A compact and powerful microwave",
+    "price": 100
+  },
+  {
+    "id": "54c15b5a-a3df-4ede-9451-001d5a2c4d37",
+    "title": "Blender",
+    "description": "A high-performance blender for smoothies and more",
+    "price": 120
+  },
+  {
+    "id": "513db15e-ce98-4dac-8820-c5bff3d0d299",
+    "title": "Electric Toothbrush",
+    "description": "A rechargeable electric toothbrush with advanced cleaning features",
+    "price": 80
+  }
+]
