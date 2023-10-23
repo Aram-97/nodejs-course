@@ -1,5 +1,15 @@
 {
-  "extends": "@tsconfig/node16/tsconfig.json",
-  "files": ["global.d.ts"],
-  "include": ["src/**/*"]
+  "include": ["global.d.ts", "src/**/*"],
+  "compilerOptions": {
+    "lib": ["ES2021"],
+    "module": "Node16",
+    "target": "ES2021",
+    "outDir": "dist",
+    "declaration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true
+  }
 }
