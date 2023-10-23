@@ -4,6 +4,7 @@
   "description": "NodeJS Global Mentoring Program [2023 Q3-Q4 APAC]",
   "main": "index.js",
   "scripts": {
+    "tsc": "tsc",
     "test": "jest --watch",
     "test:coverage": "jest --coverage",
     "start": "nodemon src/home-task-1/index.js",
@@ -12,7 +13,8 @@
     "csv-reader": "nodemon src/home-task-3/csvFileReader.js",
     "with-time": "nodemon src/home-task-3/WithTime.js",
     "users-api": "nodemon src/home-task-5/app.ts",
-    "express-app": "nodemon src/home-task-6/app.ts"
+    "express-app": "nodemon src/home-task-6/app.ts",
+    "mikro-orm-app": "nodemon src/home-task-7/app.ts"
   },
   "repository": {
     "type": "git",
@@ -21,10 +23,18 @@
   "author": "Linh Vu",
   "license": "ISC",
   "dependencies": {
+    "@mikro-orm/cli": "^5.8.9",
+    "@mikro-orm/core": "^5.8.9",
+    "@mikro-orm/migrations": "^5.8.9",
+    "@mikro-orm/postgresql": "^5.8.9",
+    "@mikro-orm/reflection": "^5.8.9",
+    "@mikro-orm/seeder": "^5.8.9",
     "axios": "^1.5.0",
     "csvtojson": "^2.0.10",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "joi": "^17.10.2"
+    "joi": "^17.10.2",
+    "pg": "^8.11.3"
   },
   "devDependencies": {
     "@tsconfig/node16": "^16.1.1",
@@ -40,5 +50,11 @@
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
+  },
+  "mikro-orm": {
+    "useTsNode": true,
+    "configPaths": [
+      "src/home-task-7/mikro-orm.config.ts"
+    ]
   }
 }
