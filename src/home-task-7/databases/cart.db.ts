@@ -1,5 +1,5 @@
 import { DI } from "../app";
-import { runIfNotNil } from "../utils";
+import { runIfNotNil } from "../../utils";
 import { Cart } from "../entities/cart.entity";
 import { CartItem } from "../entities/cartItem.entity";
 import { UsersModel } from "./users.db";
