@@ -3,7 +3,10 @@ import { PopulatedUser } from "./user.schema";
 import { PopulatedCart } from "./cart.schema";
 import { PopulatedProduct } from "./product.schema";
 
-type ORDER_STATUS = "created" | "completed";
+export enum ORDER_STATUS {
+  CREATED = "created",
+  COMPLETED = "completed",
+}
 
 export interface PaymentSchema {
   type: string;
@@ -62,7 +65,7 @@ const schema = new Schema<OrderSchema>({
     type: { type: String, required: true },
     address: { type: String, required: true },
   },
-  status: { type: String, enum: ["created", "completed"], required: true },
+  status: { type: String, enum: Object.values(ORDER_STATUS), required: true },
   totalPrice: { type: Number, required: true },
   comments: String,
 });

@@ -1,23 +1,30 @@
+import bcrypt from "bcryptjs";
 import { faker } from "@faker-js/faker";
 import { connect, disconnect } from "mongoose";
 
 import { MONGO_DB_CONNECTION_STRING, MONGO_DB_DATABASE_NAME, PORT } from "./env";
-import { UserCollection } from "./schemas/user.schema";
+import { UserCollection, UserRole } from "./schemas/user.schema";
 import { ProductCollection } from "./schemas/product.schema";
 
 const seedUsers = async (amount: number) => {
   try {
-    const fakeUsers = Array.from({ length: amount }, () => {
-      const firstName = faker.helpers.unique(faker.name.firstName);
-      const lastName = faker.helpers.unique(faker.name.lastName);
+    const fakeUsers = await Promise.all(
+      Array.from({ length: amount }, async () => {
+        const firstName = faker.helpers.unique(faker.name.firstName);
+        const lastName = faker.helpers.unique(faker.name.lastName);
+        const name = `${firstName} ${lastName}`;
+        const password = await bcrypt.hash(name, 10);
 
-      const user = new UserCollection({
-        name: `${firstName} ${lastName}`,
-        email: faker.internet.email(firstName, lastName),
-      });
+        const user = new UserCollection({
+          name,
+          password,
+          email: faker.internet.email(firstName, lastName),
+          role: faker.helpers.arrayElement(Object.values(UserRole)),
+        });
 
-      return user;
-    });
+        return user;
+      })
+    );
 
     await Promise.all(fakeUsers.map((user) => user.save()));
     console.log(`Database has been seeded with ${amount} users!`);

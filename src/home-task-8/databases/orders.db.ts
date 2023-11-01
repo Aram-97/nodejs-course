@@ -1,7 +1,6 @@
-import { ORDER_STATUS } from "../../home-task-7/entities/order.entity";
 import { OrderPayload } from "../model";
 import { PopulatedCart } from "../schemas/cart.schema";
-import { OrderCollection, PopulatedOrder } from "../schemas/order.schema";
+import { ORDER_STATUS, OrderCollection, PopulatedOrder } from "../schemas/order.schema";
 
 export class OrdersModel {
   async createOrder(data: {
