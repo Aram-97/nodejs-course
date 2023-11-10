@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
-    "test": "jest --watch",
+    "test": "jest --no-watch",
     "test:coverage": "jest --coverage",
-    "start": "nodemon src/home-task-1/index.js",
+    "start": "ts-node src/home-task-9/app.ts",
+    "seed": "ts-node src/home-task-8/seeder.ts",
+    "random-number": "nodemon src/home-task-1/index.js",
     "activity-monitor": "nodemon src/home-task-2/activityMonitor.js",
     "event-emitter": "nodemon src/home-task-3/EventEmitterTest.js",
     "csv-reader": "nodemon src/home-task-3/csvFileReader.js",
@@ -17,7 +19,8 @@
     "mikro-orm-app": "nodemon src/home-task-7/app.ts",
     "mongoose-app": "nodemon src/home-task-8/app.ts",
     "mongoose-app-seeder": "nodemon src/home-task-8/seeder.ts",
-    "user-auth-app": "nodemon src/home-task-9/app.ts"
+    "user-auth-app": "nodemon src/home-task-9/app.ts",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -26,46 +29,57 @@
   "author": "Linh Vu",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "joi": "^17.10.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.6.3",
+    "ts-node": "^10.9.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@types/bcryptjs": "^2.4.5",
+    "@types/express": "^4.17.18",
+    "@types/joi": "^17.2.3",
+    "@types/jsonwebtoken": "^9.0.4",
+    "@types/mongoose": "^5.11.97",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.2.2"
+  },
+  "optionalDependencies": {
+    "pg": "^8.11.3",
+    "axios": "^1.5.0",
+    "csvtojson": "^2.0.10",
     "@mikro-orm/cli": "^5.8.9",
     "@mikro-orm/core": "^5.8.9",
     "@mikro-orm/migrations": "^5.8.9",
     "@mikro-orm/postgresql": "^5.8.9",
     "@mikro-orm/reflection": "^5.8.9",
     "@mikro-orm/seeder": "^5.8.9",
-    "axios": "^1.5.0",
-    "bcryptjs": "^2.4.3",
-    "csvtojson": "^2.0.10",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "joi": "^17.10.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^7.6.3",
-    "pg": "^8.11.3"
-  },
-  "devDependencies": {
-    "@faker-js/faker": "^7.6.0",
-    "@tsconfig/node16": "^16.1.1",
     "@types/axios": "^0.14.0",
-    "@types/bcryptjs": "^2.4.5",
-    "@types/express": "^4.17.18",
     "@types/jest": "^29.5.5",
-    "@types/joi": "^17.2.3",
-    "@types/jsonwebtoken": "^9.0.4",
-    "@types/mongoose": "^5.11.97",
     "@types/supertest": "^2.0.12",
+    "nodemon": "^3.0.1",
     "jest": "^29.7.0",
     "jest-extended": "^4.0.1",
-    "nodemon": "^3.0.1",
-    "supertest": "^6.3.3",
     "ts-jest": "^29.1.1",
-    "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.2.2"
+    "supertest": "^6.3.3",
+    "husky": "^8.0.0"
   },
   "mikro-orm": {
     "useTsNode": true,
     "configPaths": [
       "src/home-task-7/mikro-orm.config.ts"
     ]
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "env": {
+      "NODE_DEBUG": "app-*"
+    }
   }
 }

@@ -1,0 +1,11 @@
+.husky/**/*
+.vscode/**/*
+cache/**/*
+dist/**/*
+src/home-task-[1-7]/**/*
+
+node_modules/**/*
+
+.gitignore
+jest.config.js
+README.md

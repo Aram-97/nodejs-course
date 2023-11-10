@@ -1,0 +1,2 @@
+2023-11-09T16:52:32.733Z [INFO] Incoming request! { "method": "POST", "path": "/login" }
+2023-11-09T16:52:32.895Z [INFO] Outgoing response! { "method": "POST", "path": "/login", "duration": 159 }

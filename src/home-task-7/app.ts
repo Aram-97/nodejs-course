@@ -1,11 +1,12 @@
 import http from "http";
 import "reflect-metadata";
 import express from "express";
+import util from "util";
+import { Socket } from "net";
 import * as dotenv from "dotenv";
 import { PostgreSqlDriver } from "@mikro-orm/postgresql";
 import { EntityManager, EntityRepository, MikroORM, RequestContext } from "@mikro-orm/core";
 
-import { PORT } from "./env";
 import AppRoutes from "./routes";
 import { errorHandler } from "./middlewares/error-handler";
 import config from "./mikro-orm.config";
@@ -17,6 +18,9 @@ import { Payment } from "./entities/payment.entity";
 import { Delivery } from "./entities/delivery.entity";
 
 dotenv.config();
+
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 export const DI = {} as {
   server: http.Server;
@@ -30,7 +34,48 @@ export const DI = {} as {
   deliveryRepo: EntityRepository<Delivery>;
 };
 
-const app = express();
+function setupGracefulShutdown() {
+  let connections: Socket[] = [];
+
+  DI.server.on("connection", (connection) => {
+    connections.push(connection);
+    console.log("Received a new connection!", connection.address());
+
+    connection.on("close", () => {
+      connections = connections.filter((current) => current !== connection);
+      console.log("Connection closed!");
+    });
+  });
+
+  async function shutdown() {
+    console.log("Received kill signal, shutting down gracefully");
+
+    await DI.orm.close();
+    console.log("Disconnected from PostgreSQL database!");
+
+    DI.server.close(() => {
+      console.log("Closed out remaining connections!");
+      process.exit(0);
+    });
+
+    setTimeout(() => {
+      console.error("Could not close connections in time, forcefully shutting down!");
+      process.exit(1);
+    }, 20000);
+
+    connections.forEach((connection) => {
+      connection.end();
+      console.log("Connection forcefully closed!");
+    });
+
+    setTimeout(() => {
+      connections.forEach((connection) => connection.destroy());
+    }, 10000);
+  }
+
+  process.on("SIGTERM", shutdown);
+  process.on("SIGINT", shutdown);
+}
 
 export const init = (async () => {
   DI.orm = await MikroORM.init<PostgreSqlDriver>(config);
@@ -51,4 +96,8 @@ export const init = (async () => {
   DI.server = app.listen(PORT, () => {
     console.log(`MikroORM express TS example started at http://localhost:${PORT}`);
   });
+
+  util.debuglog("app-mikro-orm")("MikroORM app started on port [%d]", PORT);
+
+  setupGracefulShutdown();
 })();

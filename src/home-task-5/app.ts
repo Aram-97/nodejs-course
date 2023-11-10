@@ -1,6 +1,11 @@
 import http from "http";
-import { PORT } from "./env";
+import * as dotenv from "dotenv";
+
 import { routeResolver } from "./resolver";
+
+dotenv.config();
+
+const PORT = process.env.PORT || 3000;
 
 const server = http.createServer(async (req, res) => {
   res.setHeader("Content-Type", "application/json");
