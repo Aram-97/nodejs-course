@@ -1,4 +1,3 @@
-export const PORT = 3000;
 export const CART_FILE_NAME = "cart.json";
 export const USERS_FILE_NAME = "users.json";
 export const PRODUCTS_FILE_NAME = "products.json";

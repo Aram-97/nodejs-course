@@ -1,0 +1,39 @@
+version: '3.9'
+services:
+  app:
+    container_name: node-gmp-app
+    build:
+      context: ../../
+      dockerfile: src/home-task-10/Dockerfile
+      args:
+        NODE_ENV: production
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - JWT_TOKEN_KEY=node_gmp_token_key
+      - MONGO_DB_DATABASE_NAME=online_shop
+      - MONGO_DB_CONNECTION_STRING=mongodb://node_gmp:password123@mongodb:27017/?authMechanism=DEFAULT
+    depends_on:
+      - mongodb
+    networks:
+      - node-gmp-network
+  mongodb:
+    container_name: mongo
+    image: mongo:latest
+    restart: always
+    ports:
+      - '27017:27017'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=node_gmp
+      - MONGO_INITDB_ROOT_PASSWORD=password123
+    networks:
+      - node-gmp-network
+networks:
+  node-gmp-network:
+
+    # Run this command to build the file:
+    # podman-compose -f src/home-task-10/docker-compose.yaml up -d
+    # OR
+    # docker-compose -f src/home-task-10/docker-compose.yaml up --build

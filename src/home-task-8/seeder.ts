@@ -1,13 +1,22 @@
 import bcrypt from "bcryptjs";
+import * as dotenv from "dotenv";
 import { faker } from "@faker-js/faker";
 import { connect, disconnect } from "mongoose";
 
-import { MONGO_DB_CONNECTION_STRING, MONGO_DB_DATABASE_NAME, PORT } from "./env";
 import { UserCollection, UserRole } from "./schemas/user.schema";
 import { ProductCollection } from "./schemas/product.schema";
 
+dotenv.config();
+
 const seedUsers = async (amount: number) => {
   try {
+    const numberOfUsers = await UserCollection.countDocuments({}).orFail();
+
+    if (numberOfUsers > 0) {
+      console.log("Database is populated with users already!");
+      return;
+    }
+
     const fakeUsers = await Promise.all(
       Array.from({ length: amount }, async () => {
         const firstName = faker.helpers.unique(faker.name.firstName);
@@ -35,6 +44,13 @@ const seedUsers = async (amount: number) => {
 
 const seedProducts = async (amount: number) => {
   try {
+    const numberOfProducts = await ProductCollection.countDocuments({}).orFail();
+
+    if (numberOfProducts > 0) {
+      console.log("Database is populated with products already!");
+      return;
+    }
+
     const fakeProducts = Array.from({ length: amount }, () => {
       const product = new ProductCollection({
         title: faker.helpers.unique(faker.commerce.product),
@@ -54,7 +70,9 @@ const seedProducts = async (amount: number) => {
 
 export const seeder = (async () => {
   try {
-    await connect(MONGO_DB_CONNECTION_STRING, { dbName: MONGO_DB_DATABASE_NAME });
+    await connect(process.env.MONGO_DB_CONNECTION_STRING!, {
+      dbName: process.env.MONGO_DB_DATABASE_NAME!,
+    });
     console.log("Connected to Mongo DB!");
 
     await seedUsers(5);
